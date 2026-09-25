@@ -5,7 +5,7 @@ import { getAllApps } from '@/lib/app';
 
 const TrendingApps = async () => {
   const data = await getAllApps()
-  console.log(data)
+  
   return (
     <div>
       <div className="mb-8">

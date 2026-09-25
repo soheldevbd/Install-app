@@ -29,16 +29,21 @@ type PageProps = {
     }>;
 };
 
+export async function generateStaticParams() {
+    const apps: App[] = await getAllApps();
+
+    return apps.map((app) => ({
+        id: String(app.id),
+    }));
+}
+
 export default async function ProductDetailsPage({
     params,
 }: PageProps) {
     const { id } = await params;
 
-    const apps: App[] = await getAllApps()
-
-    const app = apps.find(
-        (item) => item.id === Number(id)
-    );
+    const apps: App[] = await getAllApps();
+    const app = apps.find((a) => String(a.id) === id);
 
     if (!app) {
         return (

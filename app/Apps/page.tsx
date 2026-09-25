@@ -5,7 +5,7 @@ import React from 'react';
 
 const page = async () => {
   const data = await getAllApps()
-  console.log(data)
+  
   return (
     <div>
       <div className="mb-8 text-center">
